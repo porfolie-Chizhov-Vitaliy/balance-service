@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: balance-service
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   flyway:
     enabled: true
     locations: classpath:db/
@@ -49,12 +52,18 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics,prometheus
+        include: health,info,metrics,prometheus,env,mappings,configprops
       base-path: /actuator
   endpoint:
     health:
       show-details: always
     prometheus:
+      enabled: true
+    env:
+      enabled: true
+    mappings:
+      enabled: true
+    configprops:
       enabled: true
   metrics:
     export:
@@ -80,3 +89,11 @@ app:
       payment-requests: payment-requests
       balance-updates: balance-updates
       payment-status: payment-status
+
+# Настройки Swagger UI
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    display-request-duration: true
+  api-docs:
+    path: /api-docs
