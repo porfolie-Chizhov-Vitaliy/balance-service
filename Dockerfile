@@ -8,6 +8,14 @@ COPY .mvn .mvn
 COPY pom.xml .
 COPY src ./src
 
+# Проверка на соответствие названия проекта
+RUN if ! grep -q "balance-service" pom.xml; then \
+      echo "❌ ERROR: Wrong project!"; \
+      exit 1; \
+    fi
+
+
+
 # Даем права на выполнение mvnw
 RUN chmod +x mvnw
 
