@@ -11,8 +11,9 @@
   
 ## Основные команды:
 ### Bash:
-Сборка ./mvnw clean package -DskipTests 
-Проверить работоспособность сервиса curl http://localhost:8082/actuator/health
+**Сборка ** `./mvnw clean package -DskipTests` 
+
+**Проверить работоспособность сервиса** curl http://localhost:8082/actuator/health
 
 ### Docker:
 
